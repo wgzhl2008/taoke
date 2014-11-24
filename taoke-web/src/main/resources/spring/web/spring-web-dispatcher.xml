@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd ">
+
+    <!-- 默认的注解映射的支持 -->
+    <mvc:annotation-driven/>
+
+    <!-- 自动扫描的包 -->
+    <context:component-scan base-package="com.hongshu.controller">
+    </context:component-scan>
+
+    <!-- 处理在类级别上的@RequestMapping注解-->
+    <!-- <bean  
+        class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" >  
+        <property name="interceptors">  
+           多个拦截器,顺序执行  
+           <list>  
+              <ref bean="sessionInterceptor"/>  
+           </list>  
+        </property>  
+    </bean>   -->
+    <!--   
+             如果不定义mappingURL，则默认拦截所有对Controller的请求 ;   
+             可以使用正则表达式对url进行匹配，从而更细粒度的进行拦截(.*/entryOrJsonController\.do\?action=reg.*);  
+    -->
+    <!-- <bean id="sessionInterceptor" class="com.supcon.interceptor.SessionInterceptor">  
+       <property name="mappingURL" value=".*/entryOrJsonController\.do\?action=reg.*"/>  
+    </bean> -->
+
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <!-- 多个拦截器,顺序执行 -->
+        <mvc:interceptor>
+            <!-- 如果不配置或/*,将拦截所有的Controller (/entryOrJsonController/*)-->
+            <mvc:mapping path="/manager/**" />
+            <mvc:mapping path="/operation/**" />
+            <mvc:mapping path="/service/**" />
+            <bean class="com.hongshu.interceptor.SessionInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- 总错误处理 -->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="statusCodes">
+            <props>
+                <prop key="error/500">500</prop>
+                <prop key="error/404">404</prop>
+            </props>
+        </property>
+        <property name="defaultErrorView">
+            <value>error/500</value>
+        </property>
+        <property name="defaultStatusCode">
+            <value>500</value>
+        </property>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">error/500</prop>
+                <prop key="java.lang.Throwable">error/404</prop>
+            </props>
+        </property>
+        <property name="warnLogCategory" value="WARN"/>
+    </bean>
+
+    <!-- 静态资源文件的访问 -->
+    <!-- 默认 -->
+    <mvc:default-servlet-handler/>
+    <!-- 配置 -->
+    <!-- <mvc:resources location="/images/" mapping="/images/**" cache-period="31556926" />
+    <mvc:resources location="/img/" mapping="/img/**" cache-period="31556926" />
+    <mvc:resources location="/js/" mapping="/js/**" cache-period="31556926" />
+    <mvc:resources location="/css/" mapping="/css/**" cache-period="31556926" /> -->
+
+    <!-- JSP视图解释类 -->
+    <!--<bean id="jspViewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>-->
+
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/ftl/" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="output_encoding">UTF-8</prop>
+                <prop key="number_format">0.##########</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="time_format">HH:mm:ss</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="classic_compatible">true</prop>
+                <prop key="template_exception_handler">ignore</prop>
+            </props>
+        </property>
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape" />
+            </map>
+        </property>
+    </bean>
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
+
+
+    <!-- 针对freemarker的视图配置 -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="cache" value="true" />
+        <property name="prefix" value="" />
+        <property name="suffix" value=".ftl" />
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+        <property name="requestContextAttribute" value="request" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="exposeSessionAttributes" value="true" />
+    </bean>
+</beans>

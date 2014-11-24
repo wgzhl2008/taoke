@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd ">
+	
+	 <!-- druid 数据源配置 -->
+	 <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close"> 
+	    <property name="url" value="${jdbc.url}" />
+	    <property name="username" value="${jdbc.username}" />
+         <property name="driverClassName" value="${jdbc.driverClassName}" />
+	     <property name="password" value="${jdbc.password}" />
+	    <property name="connectProperties">
+	    	<props>
+	    		<prop key="password">${jdbc.password}</prop>
+	    	</props>
+	    </property>
+	    <!--<property name="connectionProperties" value="config.file=${secret.path}" />-->
+	   <!-- <property name="passwordCallback">
+	    	<bean class="com.raycloud.dBPasswordCallback.DbPasswordCallback"/>
+	    </property>-->
+	    
+	    <property name="filters" value="stat" />
+	 
+	    <property name="maxActive" value="${jdbc.maxActive}" />
+	    <property name="initialSize" value="5" />
+	    <property name="maxWait" value="${jdbc.maxWait}" />
+	    <property name="minIdle" value="1" />
+	 
+	    <property name="timeBetweenEvictionRunsMillis" value="3000" />
+	    <property name="minEvictableIdleTimeMillis" value="300000" />
+	 
+	    <property name="validationQuery" value="SELECT 'x'" />
+	    <property name="testWhileIdle" value="true" />
+	    <property name="testOnBorrow" value="false" />
+	    <property name="testOnReturn" value="false" />
+	     
+	    <property name="poolPreparedStatements" value="false" />
+	    <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+	    <property name="proxyFilters">
+	        <list>
+	            <ref bean="log-filter" />
+	        </list>
+	    </property>
+	</bean>
+
+    <!-- mbatis -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="transactionFactory" >
+            <bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" />
+        </property>
+        <property name="configLocation">
+            <value>classpath:sqlmap-config.xml</value>
+        </property>
+        <property name="mapperLocations">
+            <value>classpath*:/mybatis/sqlmap/*.xml</value>
+        </property>
+    </bean>
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+        <constructor-arg index="1" value="BATCH"></constructor-arg>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+    <bean id="txManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+        <!--
+        <bean id="placeholderConfig"
+            class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+            <property name="location">
+                <value>classpath:db.properties</value>
+            </property>
+        </bean>
+         -->
+	 <bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter">
+        <property name="dataSourceLogEnabled" value="false" />
+        <property name="connectionLogEnabled" value="false" />
+        <property name="statementLogErrorEnabled" value="false" />
+        <property name="connectionLogErrorEnabled" value="false" />
+        <property name="statementLogEnabled" value="true" />
+        <property name="resultSetLogEnabled" value="false" />
+        <property name="statementCreateAfterLogEnabled" value="true" />
+        <property name="statementPrepareAfterLogEnabled" value="true" />
+        <property name="statementPrepareCallAfterLogEnabled" value="false" />
+        <property name="statementExecuteAfterLogEnabled" value="false" />
+        <property name="statementExecuteQueryAfterLogEnabled" value="false" />
+        <property name="statementExecuteUpdateAfterLogEnabled" value="false" />
+        <property name="statementExecuteBatchAfterLogEnabled" value="false" />
+        <property name="statementCloseAfterLogEnabled" value="false" />
+        <property name="statementParameterSetLogEnabled" value="true" />
+        <property name="statementParameterClearLogEnable" value="false" />
+    </bean>	
+</beans>

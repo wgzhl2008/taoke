@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="Mondrian">
+    <Cube name="Person">
+        <Table name="PERSON" />
+        <Dimension name="部门" foreignKey="USERID" >
+            <Hierarchy  hasAll="true" primaryKey="USERID" allMemberName="所有部门" >
+                <Table name="PERSON" alias="a"/>
+                <Level name="部门" column="DEPARTMENT" uniqueMembers="true" />
+                <Level name="姓名" column="USERNAME" uniqueMembers="true" />
+            </Hierarchy>
+        </Dimension>
+        <Measure name="人数" column="USERID" aggregator="distinct count" />
+    </Cube>
+</Schema>

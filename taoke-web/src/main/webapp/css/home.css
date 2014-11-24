@@ -1,0 +1,9 @@
+@charset "utf-8;";
+#ma_container{
+    background-color: #fff;
+    width: 100%;
+}
+#ma_content{width: 100%;}
+#header .header-top-content,#header .header-menus .header-menus-nav{
+    width: 1200px;
+}

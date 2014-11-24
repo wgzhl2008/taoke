@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sqlmap-salarydetail">
+    <resultMap type="SalaryDetail" id="SalaryDetailResultMap">
+        <result property="id" column="id" />
+        <result property="timeId" column="time_id" />
+        <result property="employeeId" column="employee_id" />
+        <result property="money" column="money" />
+    </resultMap>
+    <select id="select" resultMap="SalaryDetailResultMap">
+        select * from salary_test
+    </select>
+    <insert id="insert" parameterType="SalaryDetail">
+        insert into salary_test
+        (TIME_ID, EMPLOYEE_ID, MONEY)
+        values
+        (#{timeId},#{employeeId},#{money})
+    </insert>
+</mapper>

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+a, .tbmu a, .ma_portal_list_t .xi2, .ma_portal_list_b_z .xi2, #atarget, #atarget2 {
+    text-decoration:none;color:#666;
+    -webkit-transition: color 300ms;
+    -moz-transition: color 300ms;
+    -o-transition: color 300ms;
+    transition: color 300ms;
+    -ms-transition: color 300ms;
+}
+a:hover, .ma_in_footer a:hover, .tbmu a:hover, .ma_in_header a:hover, .ma_left_nav .ma_hover, .ma_portal_list_des h3 a:hover, .ma_portal_user_des a:hover, .ma_qiandao_p em, .ma_portal_mem li .ma_n:hover, .ma_portal_list_t .xi2:hover, .ma_portal_list_b_z .xi2:hover, #atarget:hover, #atarget2:hover, .ma_guanzhu li a:hover, .ma_portal_y_list li a:hover, .ma_mianbaoxie a:hover, .pi a:hover, .ma_tzxq_about li a:hover, .hasfsl a:hover, .pnpost a:hover, .po p a:hover, .ma_tiezixiangqing_t .authi a:hover, .ma_tzxq_data dd a:hover, .ma_bl_middle a:hover, .ma_bkbt a:hover, .ma_bksc a:hover, .ma_bl_box .rfm a:hover, .ttp a:hover {text-decoration:none;color:#008dd9;}
+
+.wp{
+    width: 1200px;
+}
+#ma_container{
+    width: 100%;
+    min-width: 980px;
+    height: auto;
+    background-color: #F4F4F4;
+    padding: 20px;
+}
+#ma_header{
+    width: 100%;
+    min-width: 980px;
+    height: 84px;
+    background-color: #FFF;
+    margin-bottom: 20px;
+}

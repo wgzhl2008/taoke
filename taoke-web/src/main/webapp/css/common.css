@@ -1,0 +1,87 @@
+@charset "UTF-8";
+*{
+    word-wrap: break-word;
+}
+body{background: #FFF;}
+body,input,button,select,textarea{font: 12px/1.5 'Microsoft YaHei',arial,helvetica,sans-serif}
+textarea{resize: none;}
+body,ul,ol,li,dl,dd,p,h1,h2,h3,h4,h5,h6,form,fieldset,.pr,.pc{
+    margin: 0;
+    padding: 0;
+}
+table{empty-cells: show;border-collapse: collapse;}
+caption,th{text-align: left;font-weight: 400}
+
+ul li,.xl li{
+    list-style: none;
+}
+h1,h2,h3,h4,h5,h6{font-size: 1em;}
+em,cite,i{font-style: normal}
+a{color: #333;text-decoration: none;}
+a:hover{text-decoration: underline;}
+a img{border: none;}
+label{cursor: pointer;}
+
+.z{float: left;}
+.y{float: right;}
+.cl{
+    zoom: 1;
+}
+.cl:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;visibility: hidden;
+}
+.hidefocus{outline: none;}
+hr{
+    display: block;
+    clear: both;
+    *margin-top: -8px!important;
+    *margin-bottom: -8px!important;
+}
+.mn hr, .sd hr{
+    margin: 0 10px;
+}
+.wp{
+    margin: 0 auto;
+    width: 960px;
+}
+#wp .wp{width: auto}
+#toptb{min-width: 960px;border-bottom:1px solid #CDCDCD;background: #F2F2F2;line-height: 28px; }
+
+#toptb a{float: left;padding: 0 4px;height: 28px;}
+
+#toptb a.showmenu{padding-right: 15px;}
+#toptb a.hover{
+    background-color: #FFF;
+}
+#toptb .pipe{
+    float: left;
+    display: none;
+}
+#um .new,.topnav .new,.sch .new,#toptb .new{
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    color: #369;
+    font-weight: 700;
+}
+#toptb #diy-tg_menu{
+    margin: -7px 0 0 -17px;
+}
+#toptb a#sslct,.switchwidth,#toptb a.switchwidthblind{
+    margin-top: 5px;
+    padding: 0 !important;
+    width: 23px;
+    height: 18px !important;
+    background: url("http://www.apkbus.com/template/hl_iuni/images/img/switch_style.png") no-repeat 100% 0;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+#toptb a.switchwidthblind{
+    width: 10px;
+    background-image: none;
+}
+
+#toptb .qq_bind{margin-top: 2px;}

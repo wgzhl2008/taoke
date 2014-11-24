@@ -1,0 +1,65 @@
+@charset "UTF-8";
+#ma_content{
+    width: 1200px;
+    height: auto;
+    min-height: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#header{
+    border-top: 1px solid #ccc;
+    margin: 25px;
+    background-color: #fff;
+}
+#header .header-top{}
+#header .header-top-content{
+    height: 90px;
+    width: 1200px;
+    position: relative;
+}
+#header .header-top-content,#header .header-menus .header-menus-nav{width: 1200px;margin: 0 auto;}
+#header .header-top-content .header-logo{
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+}
+#header .header-userinfo{ position: absolute;bottom: 10px;right: 0}
+#header .header-userinfo { margin-bottom: 15px; }
+#header .header-userinfo .header-login, #header .header-userinfo .header-register { display: inline-block; font-size: 16px; color: #878787; }
+#header .header-userinfo .header-login span.i-login, #header .header-userinfo .header-register span.i-register { display: inline-block; width: 25px; height: 25px; vertical-align: middle; background: url(index.png) no-repeat; }
+#header .header-userinfo .header-login span.i-login { background-position: -23px -293px; }
+#header .header-userinfo span.i-pm { display: inline-block; width: 25px; height: 16px; vertical-align: middle; background: url(pm.png) no-repeat; }
+#header .header-userinfo span.i-pm-none { background: url(pm_none.png) no-repeat; }
+#header .header-userinfo .uname>a { display: inline-block; position: relative; z-index: 999; padding: 0px 20px 0px 10px; border: 1px solid #fff; }
+#header .header-userinfo .uname:hover>a { border: 1px solid #CFD1CE; border-bottom-color: #fff; }
+
+#header .header-userinfo .header-register span.i-register { background-position: -67px -293px; }
+#header .header-userinfo .header-register { margin-left: 15px; }
+#header .header-userinfo .header-userinfo-logged>li { font-size: 16px; display: inline-block; margin-right: 5px; }
+#header .header-userinfo .header-userinfo-logged>li li { font-size: 14px; vertical-align: text-top;  }
+#header .header-userinfo .header-userinfo-logged .avts img { width: 40px; height: 40px; border-radius: 30px; border: 3px solid #ccc; }
+
+#header .header-userinfo .dropdownmenu { display: none; position: absolute; top: -1px; left: 0; width: 120px; z-index: 998; background-color: #fff; border: 1px solid #ccc; text-align: left; margin-top: -1px; }
+#header .header-userinfo .dropdownmenu li:first-child { border-top: none; }
+#header .header-userinfo .dropdownmenu li a { display: block; line-height: 20px; padding: 4px 15px; }
+
+#header.header-menus-fixed { margin-bottom: 85px; }
+#header.header-menus-fixed .header-menus { position: fixed; top: 0; left: 0; z-index: 9999; }
+#header .header-menus ul.header-menus-nav-parent { position: relative; }
+#header .header-menus { background-color: #2C7ACD; font-size: 16px; width: 100%; }
+#header .header-menus a { display: inline-block; width: 70px; height: 60px; line-height: 60px; text-align: center; color: #fff; }
+#header .header-menus a, #header .header-menus ul.header-menus-nav-parent, #header .header-menus ul.header-menus-nav-parent > li, #header .header-menus .header-menus-split { display: inline-block; }
+#header .header-menus ul.header-menus-nav-parent > li:hover>a, #header .header-menus .header-menus-home:hover { background-color: #163D66; }
+#header .header-menus .header-menus-split { height: 34px; width: 1px; margin: 13px 0; vertical-align: bottom; background-color: #4685CA; border-left: 1px solid #2163AD; }
+
+#header .header-menus .header-menus-nav-sub { display: none; position: absolute; top: 0; left: 0; z-index: 999; color: #fff; font-size: 14px; background-color: #2C4F75; }
+#header .header-menus .header-menus-nav-sub li { }
+#header .header-menus .header-menus-nav-sub li a { display: block; padding: 0 18px; height: 35px; width: auto; line-height: 35px; color: #fff; text-align: left; }
+#header .header-menus .header-menus-nav-sub li a:hover { background-color: #0F253C; }
+
+#header .header-menus .header-search, #header .header-menus .header-search form, #header .header-menus .header-search .header-search-botton { display: inline-block; }
+#header .header-menus .header-search { float: right; margin-right: 10px; margin-top: 15px; }
+#header .header-menus .header-search .header-search-keyword { width: 200px; height: 30px; padding: 0 8px; border-radius: 6px; border: none; font-size: 14px; }
+#header .header-menus .header-search .header-search-botton { position: absolute; right: -8px; top: 0px; width: 35px; height: 40px; text-indent: -99999px; background: url(index.png) no-repeat -19px -241px; border: none; cursor: pointer; }
+#header .header-menus .header-search form { position: relative; }
