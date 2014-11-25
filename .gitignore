@@ -8,3 +8,6 @@ pom.xml.next
 release.properties
 *.iml
 .idea/*
+*.settings
+*.classpath
+*.project
