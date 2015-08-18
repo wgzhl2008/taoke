@@ -12,17 +12,14 @@ import java.util.List;
  */
 @Repository
 public class SalaryDetailDaoImpl extends BaseDao implements SalaryDetailDao{
-    @Override
     public void insert(SalaryDetail salaryDetail) {
         this.getSqlSession().insert("sqlmap-salarydetail.insert", salaryDetail);
     }
 
-    @Override
     public void insert(List<SalaryDetail> salaryDetails) {
         this.batchInsert("sqlmap-salarydetail.insert", salaryDetails);
     }
 
-    @Override
     public List<SalaryDetail> select() {
         return sqlSessionTemplate.selectList("sqlmap-salarydetail.select");
     }
