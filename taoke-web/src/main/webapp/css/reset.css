@@ -1,65 +1,48 @@
-@charset "utf-8;";
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section, button, submit, input, textarea, select, hr, sup, cite, var {margin:0;padding:0;outline:none;}
+@charset "utf-8";
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
+abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,
+dialog, figure, footer, header, nav, section, button, input, textarea,
+select, hr, sup, cite, var {margin:0;padding:0;outline:none;}
 body{
-    position: relative;
-    color: #919090;
-    font-size: 12px;
-    font-family: Tahoma,"微软雅黑","宋体";
-    *font-family: "微软雅黑",Tahoma,"宋体";
-    word-break: break-all;/*规定自动换行的处理方法。break-all:允许在单词内换行*/
+    position:relative;
+    color:#919090;
+    font-size:12px;
+    font-family:Tahoma,"微软雅黑","宋体";
+    *font-family:"微软雅黑",Tahoma,"宋体";
+    word-break:break-all;
 }
-input,button{
-    font-family: Tahoma, "微软雅黑", "宋体";
-    *font-family: "微软雅黑",Tahoma,"宋体";
+input, button {font-family:Tahoma,"微软雅黑","宋体";*font-family:"微软雅黑",Tahoma,"宋体";}
+li{list-style:none}
+image{border:0}
+html,body{width:100%}
+a{
+    text-decoration: none;
+    color: #666;
+    transition: color 300ms ease 0s;
+    -moz-transition: color 300ms ease 0s;
+    -webkit-transition: color 300ms ease 0s;
+    -o-transition: color 300ms ease 0s;
 }
-li{
-    list-style:none;
-}
-html,body{
-    width: 100%;
-}
-.no_border_bottom{
-    border-bottom: 0;
-}
+.no_border_bottom{border-bottom:0}
+.z{float:left}
+.y{float:right}
+.cl:after{clear:both;display:block;visibility:hidden;height:0;content:"."}
+.cl{zoom:1}
+.hidefocus{outline:0}
 
-.z{
-    float: left;
-}
-.y{
-    float: right;
-}
-/*在类c1后插入.*/
-.cl:after{
-    clear: both;
-    display: block;
-    visibility: hidden;
-    height: 0;
-    content: ".";
-}
-.cl{
-   zoom: 1;
-}
+.pipe{margin:0 5px;color:#CCC}
 
-.hidefocus{
-    outline: 0;
-}
+.undis{display:none;}
 
-.pipe{
-    margin: 0 5px;
-    color: #CCC;
-}
-.undis{
-    display: none;
-}
-/*圆角边框*/
-.ma_radius{
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
-/*添加阴影*/
-.ma_shadow{
+.ma_radius {
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;}
+.ma_shadow {
     -webkit-box-shadow:0 2px 1px #F1F1F1;
-    -moz-box-shadow: 0 2px 1px #F1F1F1;
-    box-shadow: 0 2px 1px #F1F1F1;
+    -moz-box-shadow:0 2px 1px #F1F1F1;
+    box-shadow:0 2px 1px #F1F1F1;
 }
+
+

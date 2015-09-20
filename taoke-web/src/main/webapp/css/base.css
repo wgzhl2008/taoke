@@ -1,0 +1,177 @@
+@charset "UTF-8";
+.toptb{
+    min-width: 960px;
+    border-bottom: 1px solid #CDCDCD;
+    background: #F2F2F2;
+    line-height: 28px;
+}
+.toptb a{
+    float: left;
+    padding: 0 4px;
+    height: 28px;
+}
+
+.toptb a.hover{
+    background-color: #FFF;
+}
+.font-blod-red{
+    font-weight: bold;color: red;
+}
+.wp{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.ma_container{
+    background-color: #FFF;
+    width: 100%;
+    min-width: 980px;
+    height: auto;
+    padding-bottom: 20px;
+}
+.header{
+    border-top: solid 1px #CCC;
+    margin-bottom: 25px;
+    background-color: #FFF;
+}
+.header .header-top-content{
+    width: 1200px;
+    margin: 0px auto;
+    height: 90px;
+    position: relative;
+}
+.header .header-top-content .header-logo{
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+}
+.header .header-userinfo{
+    margin-bottom: 15px;
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+}
+.header .header-userinfo .header-login,.header .header-userinfo .header-register{
+    display: inline-block;
+    font-size: 16px;
+    color: #878787;
+}
+.header .header-userinfo .header-login span.i-login,.header .header-userinfo .header-register span.i-register{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    background: url("/img/index.png") no-repeat;
+}
+.header .header-userinfo .header-login span.i-login{
+    background-position: -23px -293px;
+}
+.header .header-userinfo .header-register{
+    margin-left: 15px;
+}
+.header .header-userinfo .header-register span.i-register{
+    background-position: -67px -293px;
+}
+.header .header-menus{
+    background-color: #1DBCFE;
+    font-size: 16px;
+    width: 100%;
+}
+
+.header .header-menus .header-menus-nav{
+    width: 1200px;
+    margin: 0 auto;
+}
+.header .header-menus ul.header-menus-nav-parent,.header .header-menus .header-menus-split,.header .header-menus .header-search form,.header .header-menus a,.header .header-menus .header-search,.header .header-menus ul.header-menus-nav-parent>li{
+    display: inline-block;
+}
+.header .header-menus ul.header-menus-nav-parent{
+    position: relative;
+}
+.header .header-menus ul.header-menus-nav-parent>li:hover>a{
+    background-color: #06ACF1;
+}
+
+.header.header-menus-fixed{
+    margin-bottom: 85px;
+}
+.header.header-menus-fixed .header-menus{
+    position: fixed;
+    top: 0px;
+    left: 0;
+    z-index: 9999;
+}
+
+
+.header .header-menus a{
+    display: inline-block;
+    width: 70px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #FFF;
+}
+.header .header-menus .header-search{
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+.header .header-menus .header-search form{
+    position: relative;
+    display: inline-block;
+}
+.header .header-menus .header-search .header-search-keyword{
+    width: 200px;
+    height: 30px;
+    padding: 0  8px;
+    border-radius: 6px;/*圆角*/
+    border: medium none;
+    font-size: 14px;
+}
+.header .header-menus .header-search .header-search-botton{
+    position: absolute;
+    right: -8px;
+    top: 0px;
+    width: 35px;
+    height: 40px;
+    text-indent: -99999px;
+    background: url("/img/index.png") no-repeat scroll -19px -241px transparent;
+    border: medium none;
+    cursor: pointer;
+}
+
+.header .header-menus .header-menus-nav-sub{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    color: #fff;
+    font-size: 14px;
+    background-color: #06ACF1;
+}
+.header .header-menus .header-menus-nav-sub a{
+    display: block;
+    padding: 0 18px;
+    height: 35px;
+    width: auto;
+    line-height: 35px;
+    color: #FFF;
+    text-align: left;
+}
+.header .header-menus .header-menus-nav-sub a:hover{
+    background-color: #0F253C;
+}
+
+.header .header-menus .header-menus-split{
+    height: 34px;
+    width: 1px;
+    margin: 13px 0px;
+    vertical-align: bottom;
+    background-color: #4685CA;
+    border-left: 1px solid #06ACF1;
+}
+.scbar_txt{
+    outline: medium none;
+}

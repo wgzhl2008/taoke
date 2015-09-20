@@ -3,6 +3,7 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.hongshu.domain.SalaryDetail" alias="SalaryDetail"></typeAlias>
+        <typeAlias type="com.hongshu.domain.User" alias="User"></typeAlias>
     </typeAliases>
     <!--<mappers>
         <mapper resource="/ibatis/sqlmap/test.xml" />

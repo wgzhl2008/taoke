@@ -16,30 +16,28 @@ import java.util.Map;
  */
 public class FreemarkTemp {
 
-    public static void main(String[] args) throws Exception{
-        Map<String,Object> data = new HashMap<String,Object>();
-        data.put("name","中华人民共和国我 爱你");
-       freemarkTemp("hello.ftl",data);
+    public static void main(String[] args) throws Exception {
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put("name", "中华人民共和国我 爱你");
+        freemarkTemp("hello.ftl", data);
     }
 
 
-
-
-    public static void freemarkTemp(String templateName,Map<String,Object> data) throws  Exception{
+    public static void freemarkTemp(String templateName, Map<String, Object> data) throws Exception {
         Configuration cfg = new Configuration();
         File file = new File("/Users/zhanglei/work/ftl");
-        if(!file.exists())file.createNewFile();
+        if (!file.exists()) file.createNewFile();
         cfg.setDirectoryForTemplateLoading(file);
         cfg.setObjectWrapper(new DefaultObjectWrapper());
         cfg.setDefaultEncoding("utf-8");
 
 
         cfg.setTagSyntax(Configuration.AUTO_DETECT_TAG_SYNTAX);
-        Writer writer = new OutputStreamWriter(new FileOutputStream("/Users/zhanglei/work/freemark.txt"),"UTF-8");
+        Writer writer = new OutputStreamWriter(new FileOutputStream("/Users/zhanglei/work/freemark.txt"), "UTF-8");
 
         Template template = cfg.getTemplate(templateName);
 
-        template.process(data,writer);
+        template.process(data, writer);
         writer.flush();
     }
 
